@@ -594,7 +594,7 @@ void disassembleJob(ifstream& fs, int jobAddress) {
 			(*output) << oss.str() << "\n";
 		}
 		else {
-			(*output) << setw(20) << "" << pair.second << "\n";
+			(*output) << setw(20) << setfill(' ') << "" << pair.second << "\n";
 		}
 	}
 }
@@ -604,6 +604,7 @@ void disassembleJob(ifstream& fs, int jobAddress) {
 void dumpInfo(ifstream& fs, const vector<char>& buffer) {
 	int infoOffset = getInt32(buffer, 0x94);
 	fs.seekg(infoOffset, ios::beg);
+
 	vector<char> infoBuffer(0x6C);
 	readAndDecryptBytes(fs, infoBuffer.data(), 0, static_cast<int>(infoBuffer.size()));
 
@@ -611,6 +612,8 @@ void dumpInfo(ifstream& fs, const vector<char>& buffer) {
 	(*output) << setw(2) << setfill('0') << uppercase << hex << (int)((unsigned char)infoBuffer[2]) << "."
 		<< setw(2) << setfill('0') << (int)((unsigned char)infoBuffer[1]) << "."
 		<< setw(2) << setfill('0') << (int)((unsigned char)infoBuffer[0]) << dec << "\n";
+
+	(*output) << setfill(' ');
 
 	int16_t rev1 = ((unsigned char)infoBuffer[0x06]) | (((unsigned char)infoBuffer[0x07]) << 8);
 	int16_t rev2 = ((unsigned char)infoBuffer[0x04]) | (((unsigned char)infoBuffer[0x05]) << 8);
@@ -628,6 +631,8 @@ void dumpInfo(ifstream& fs, const vector<char>& buffer) {
 		(((unsigned char)infoBuffer[0x6A]) << 16) | (((unsigned char)infoBuffer[0x6B]) << 24);
 	(*output) << ";Package Version: " << setw(8) << setfill('0') << uppercase << hex << pkgVersion << dec << "\n";
 	(*output) << "\n";
+
+	(*output) << setfill(' ');
 }
 
 //---------------------------------------------------------------------
