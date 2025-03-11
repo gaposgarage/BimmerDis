@@ -296,6 +296,8 @@ bool isPrintable(unsigned char b) {
 // Reads 'count' bytes from 'fs' into 'buffer' (starting at offset) and XORs each byte with 0xF7.
 void readAndDecryptBytes(ifstream& fs, char* buffer, int offset, int count) {
 	fs.read(buffer + offset, count);
+	if (fs.gcount() != count)
+		throw runtime_error("Failed to read required bytes from file.");
 	for (int i = offset; i < offset + count; i++) {
 		buffer[i] ^= 0xF7;
 	}
@@ -547,8 +549,9 @@ void disassembleJob(ifstream& fs, int jobAddress) {
 			int currentPos = static_cast<int>(fs.tellg());
 			if (arg0.size() >= 4) {
 				string hexStr = arg0.substr(2, arg0.size() - static_cast<size_t>(4));
-				int offsetVal = stoi(hexStr, nullptr, 16);
-				int labelAddress = currentPos + offsetVal;
+				// Use stoul instead of stoi to avoid out_of_range error
+				unsigned long offsetVal = stoul(hexStr, nullptr, 16);
+				int labelAddress = currentPos + static_cast<int>(offsetVal);
 				labelSet.insert(labelAddress);
 				ostringstream oss;
 				oss << "__" << setw(8) << setfill('0') << uppercase << hex << labelAddress;
@@ -811,6 +814,7 @@ void dumpJobs(ifstream& fs, const vector<char>& buffer) {
 //---------------------------------------------------------------------
 // Main entry point: Finds the input file(s), opens each, and processes them.
 int main(int argc, char* argv[]) {
+	try {
 	if (argc != 2) {
 		cerr << "Usage: BESTDIS <BEST file directory>" << endl;
 		return -1;
@@ -870,6 +874,11 @@ int main(int argc, char* argv[]) {
 
 		inStream.close();
 		outStream.close();
+	}
+	}
+	catch (const exception& ex) {
+		cerr << "Error: " << ex.what() << endl;
+		return -1073740791;
 	}
 
 	return 0;
