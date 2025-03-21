@@ -43,11 +43,11 @@ Below are two screenshots showing how a PRG (BEST) file appears before and after
 
 1. **Decrypted/Disassembled Output (`ms43ds0.b1v`):**
 
-   ![Decrypted Disassembly](assets/prg_disassembly.png)
+   ![Decrypted Disassembly](assets/screenshots/prg_disassembly.png)
 
 2. **Raw Binary Disassembly (`ms43ds0.prg`):**
 
-   ![PRG Binary](assets/prg_binary.png)
+   ![PRG Binary](assets/screenshots/prg_binary.png)
 
 These images illustrate the difference between the raw, partially x86-based disassembly (right image) and the final, more readable `.b1v` output (left image) produced by BimmerDis.
 
