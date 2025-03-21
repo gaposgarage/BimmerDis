@@ -32,6 +32,20 @@ When executed, BimmerDis will:
 EDIABAS (Electronic Diagnostic Basic System) is a diagnostic platform developed by Softing on behalf of BMW. It utilizes the "Beschreibungssprache für Steuergeräte" – a specialized language designed for defining diagnostic routines, sensor measurements, and error memory checks in modern BMW vehicles.
 BimmerDis helps engineers, developers, and enthusiasts to reverse engineer and better understand these ECU description files.
 
+## Screenshots
+
+Below are two screenshots showing how a PRG (BEST) file looks before and after decryption/disassembly:
+
+1. **Decrypted/Disassembled Output (`ms43ds0.b1v`):**
+
+   ![Decrypted Disassembly](assets/prg_disassembly.png)
+
+2. **Raw Binary Disassembly (`ms43ds0.prg`):**
+
+   ![PRG Binary](assets/prg_binary.png)
+
+These images illustrate the difference between the raw, partially x86-based disassembly (right image) and the final, more readable `.b1v` output (left image) that BimmerDis produces.
+
 ## Credits
 
 BimmerDis builds on community efforts and is part of a larger collection of diagnostic tools.
