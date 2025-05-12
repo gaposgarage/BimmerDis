@@ -1,0 +1,4889 @@
+;BIP Version: 05.05.00
+;Revision Number: 1.6
+;Last Changed: Wed Mar 31 18:14:52 2004
+;By: BMW TI-430 Drexel, Alps Lo
+;Package Version: 00000000
+
+;ECU:Schaltzentrum Mittelkonsole E46
+;ORIGIN:BMW TI-433 Zhang
+;REVISION:1.06
+;AUTHOR:BMW TI-430 Drexel, Alps Lo
+;ECUCOMMENT:
+
+
+TBEG "JOBRESULT"
+HEAD "SB", "STATUS_TEXT"
+LINE "0xA0", "OKAY"
+LINE "0xA1", "BUSY"
+LINE "0xA2", "ERROR_ECU_REJECTED"
+LINE "0xB0", "ERROR_ECU_PARAMETER"
+LINE "0xB1", "ERROR_ECU_FUNCTION"
+LINE "0xB2", "ERROR_ECU_NUMBER"
+LINE "0xFF", "ERROR_ECU_NACK"
+LINE "?10?", "ERROR_ARGUMENT"
+LINE "?20?", "ERROR_FEHLERANZAHL"
+LINE "?70?", "ERROR_NUMBER_ARGUMENT"
+LINE "?71?", "ERROR_RANGE_ARGUMENT"
+LINE "?72?", "ERROR_VERIFY"
+LINE "0x??", "ERROR_ECU_UNKNOWN_STATUSBYTE"
+TEND
+
+TBEG "LIEFERANTEN"
+HEAD "LIEF_NR", "LIEF_TEXT"
+LINE "0x01", "Reinshagen => Delphi"
+LINE "0x02", "Kostal"
+LINE "0x03", "Hella"
+LINE "0x04", "Siemens"
+LINE "0x05", "Eaton"
+LINE "0x06", "UTA"
+LINE "0x07", "Helbako"
+LINE "0x08", "Bosch"
+LINE "0x09", "Loewe => Lear"
+LINE "0x10", "VDO"
+LINE "0x11", "Valeo"
+LINE "0x12", "MBB"
+LINE "0x13", "Kammerer"
+LINE "0x14", "SWF"
+LINE "0x15", "Blaupunkt"
+LINE "0x16", "Philips"
+LINE "0x17", "Alpine"
+LINE "0x18", "Teves"
+LINE "0x19", "Elektromatik Suedafrika"
+LINE "0x20", "Becker"
+LINE "0x21", "Preh"
+LINE "0x22", "Alps"
+LINE "0x23", "Motorola"
+LINE "0x24", "Temic"
+LINE "0x25", "Webasto"
+LINE "0x26", "MotoMeter"
+LINE "0x27", "Delphi PHI"
+LINE "0x28", "DODUCO => BERU"
+LINE "0x29", "DENSO"
+LINE "0x30", "NEC"
+LINE "0x31", "DASA"
+LINE "0x32", "Pioneer"
+LINE "0x33", "Jatco"
+LINE "0x34", "Fuba"
+LINE "0x35", "UK-NSI"
+LINE "0x36", "AABG"
+LINE "0x37", "Dunlop"
+LINE "0x38", "Sachs"
+LINE "0x39", "ITT"
+LINE "0x40", "FTE"
+LINE "0x41", "Megamos"
+LINE "0x42", "TRW"
+LINE "0x43", "Wabco"
+LINE "0x44", "ISAD Electronic Systems"
+LINE "0x45", "HEC (Hella Electronics Corporation)"
+LINE "0x46", "Gemel"
+LINE "0x47", "ZF"
+LINE "0x48", "GMPT"
+LINE "0x49", "Harman Kardon"
+LINE "0x50", "Remes"
+LINE "0x51", "ZF Lenksysteme"
+LINE "0x52", "Magneti Marelli"
+LINE "0x53", "Borg Instruments"
+LINE "0x54", "GETRAG"
+LINE "0x55", "BHTC (Behr Hella Thermocontrol)"
+LINE "0x56", "Siemens VDO Automotive"
+LINE "0x57", "Visteon"
+LINE "0x58", "Autoliv"
+LINE "0x59", "Haberl"
+LINE "0x60", "Magna Steyr"
+LINE "0x61", "Marquardt"
+LINE "0x62", "AB-Elektronik"
+LINE "0x63", "Siemens VDO Borg"
+LINE "0x64", "Hirschmann Electronics"
+LINE "0x65", "Hoerbiger Electronics"
+LINE "0x66", "Thyssen Krupp Automotive Mechatronics"
+LINE "0x67", "Gentex GmbH"
+LINE "0x68", "Atena GmbH"
+LINE "0xFF", "unbekannter Hersteller"
+TEND
+
+TBEG "ROVERPARTNUMPREFIX"
+HEAD "ROVER_NR", "PREFIX"
+LINE "0xA0", "AMR"
+LINE "0xA1", "HHF"
+LINE "0xA2", "JFC"
+LINE "0xA3", "MKC"
+LINE "0xA4", "SCB"
+LINE "0xA5", "SRB"
+LINE "0xA6", "XQC"
+LINE "0xA7", "XQD"
+LINE "0xA8", "XQE"
+LINE "0xA9", "XVD"
+LINE "0xAA", "YAC"
+LINE "0xAB", "YDB"
+LINE "0xAC", "YFC"
+LINE "0xAD", "YUB"
+LINE "0xAE", "YWC"
+LINE "0xAF", "YWQ"
+LINE "0xB0", "EGQ"
+LINE "0xB1", "YIB"
+LINE "0xB2", "YIC"
+LINE "0xB3", "YIE"
+LINE "0xXY", "???"
+TEND
+
+TBEG "DIGITALARGUMENT"
+HEAD "TEXT", "WERT"
+LINE "ein", "1"
+LINE "aus", "0"
+LINE "ja", "1"
+LINE "nein", "0"
+LINE "auf", "1"
+LINE "ab", "0"
+LINE "yes", "1"
+LINE "no", "0"
+LINE "on", "1"
+LINE "off", "0"
+LINE "up", "1"
+LINE "down", "0"
+LINE "true", "1"
+LINE "false", "0"
+LINE "1", "1"
+LINE "0", "0"
+TEND
+
+TBEG "IOSTATUS"
+HEAD "IO_ID", "IO_ID_TEXT"
+LINE "0x00", "Left_side_seat_heater_switch"
+LINE "0x01", "Right_side_seat_heater_switch"
+LINE "0x02", "Sunblind_switch"
+LINE "0x03", "Surround_switch"
+LINE "0x06", "Day/Night_change over"
+LINE "0x07", "Terminal_50_status"
+LINE "0x08", "Terminal_15_status"
+LINE "0x09", "Terminal_R_status "
+LINE "0x10", "Right_side_seat_heater_bottom_LED"
+LINE "0x11", "Right_side_seat_heater_middle_LED"
+LINE "0x12", "Right_side_seat_heater_top_LED"
+LINE "0x13", "Left_side_seat_heater_bottom_LED"
+LINE "0x14", "Left_side_seat_heater_middle_LED"
+LINE "0x15", "Left_side_seat_heater_top_LED"
+LINE "0x16", "Surround_sound_LED"
+LINE "0x17", "Surround_sound_output"
+TEND
+
+TBEG "FARTTEXTE"
+HEAD "ARTNR", "ARTTEXT"
+LINE "0x00", "sporadischer Fehler"
+LINE "0x01", "statischer Fehler"
+LINE "0x??", "unbekannte Fehlerart"
+TEND
+
+TBEG "IARTTEXTE"
+HEAD "ARTNR", "ARTTEXT"
+LINE "0x00", "sporadischer Fehler"
+LINE "0x01", "statischer Fehler"
+LINE "0x??", "unbekannte Fehlerart"
+TEND
+
+TBEG "FORTTEXTE"
+HEAD "ORT", "ORTTEXT"
+LINE "0x001", "Klemme 30 nicht vorhanden"
+LINE "0x002", "Sitzheizung links Kurzschluss oder Leitungsunterbrechung"
+LINE "0x003", "Sitzheizung rechts Kurzschluss oder Leitungsunterbrechung"
+LINE "0x004", "Temperatursensor Sitzheizung links Leitungsunterbrechung"
+LINE "0x005", "Temperatursensor Sitzheizung links Kurzschluss gegen Masse"
+LINE "0x006", "Temperatursensor Sitzheizung rechts Leitungsunterbrechung"
+LINE "0x007", "Temperatursensor Sitzheizung rechts Kurzschluss gegen Masse"
+LINE "0x008", "Heizflaeche Sitzheizung links Leitungsunterbrechung"
+LINE "0x009", "Heizflaeche Sitzheizung rechts Leitungsunterbrechung"
+LINE "0x00A", "Sonnenrollo Motor, Leitungsunterbrechung"
+LINE "0x00B", "Sonnenrollo Motor, Kurzschluss"
+LINE "0x???", "unbekannter Fehlerort"
+TEND
+
+TBEG "IORTTEXTE"
+HEAD "ORT", "ORTTEXT"
+LINE "0x001", "Taster Sitzheizung links dauernd betaetigt"
+LINE "0x002", "Taster Sitzheizung rechts dauernd betaetigt"
+LINE "0x003", "Taster Sonnenrollo dauernd betaetigt"
+LINE "0x004", "Taster HiFi System dauernd betaetigt"
+LINE "0x005", "Sitzheizung Unterspannung erkannt"
+LINE "0x006", "Sonnenrollo Unterspannung erkannt"
+LINE "0x007", "Sitzheizung Ueberspannung erkannt"
+LINE "0x008", "Sonnenrollo Ueberspannung erkannt"
+LINE "0x???", "unbekannter Fehlerort"
+TEND
+
+
+INFO#
+;    JOBNAME:INFO
+;    JOBCOMMENT:Information SGBD
+;    RESULT:ECU
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Steuergerät im Klartext
+;    RESULT:ORIGIN
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Steuergeräte-Verantwortlicher
+;    RESULT:REVISION
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Versions-Nummer
+;    RESULT:AUTHOR
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Namen aller Autoren
+;    RESULT:COMMENT
+;    RESULTTYPE:string
+;    RESULTCOMMENT:wichtige Hinweise
+;    RESULT:PACKAGE
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Include-Paket-Nummer
+;    RESULT:SPRACHE
+;    RESULTTYPE:string
+;    RESULTCOMMENT:deutsch, english
+;
+                    clear      S1
+                    move       S1,"Schaltzentrum Mittelkonsole E46"
+                    push       #$1.L
+                    ergs       "ECU",S1
+                    pop        L0
+                    clear      S1
+                    move       S1,"BMW TI-433 Zhang"
+                    push       #$1.L
+                    ergs       "ORIGIN",S1
+                    pop        L0
+                    clear      S1
+                    move       S1,"1.06"
+                    push       #$1.L
+                    ergs       "REVISION",S1
+                    pop        L0
+                    clear      S1
+                    move       S1,"BMW TI-430 Drexel, Alps Lo"
+                    push       #$1.L
+                    ergs       "AUTHOR",S1
+                    pop        L0
+                    clear      S1
+                    move       S1,""
+                    push       #$1.L
+                    ergs       "COMMENT",S1
+                    pop        L0
+                    clear      S1
+                    move       S1,"1.00"
+                    push       #$1.L
+                    ergs       "PACKAGE",S1
+                    pop        L0
+                    clear      S1
+                    move       S1,"deutsch"
+                    push       #$1.L
+                    ergs       "SPRACHE",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+INITIALISIERUNG#
+;    JOBNAME:INITIALISIERUNG
+;    JOBCOMMENT:Initialisierung und Kommunikationsparameter DS2
+;    RESULT:DONE
+;    RESULTTYPE:int
+;    RESULTCOMMENT:1, wenn Okay
+;
+                    clear      S1
+                    move       S1,{$FF.B,$FF.B,$00.B,$00.B}
+                    clear      S2
+                    move       S2,S1
+                    move       L0,#$2.L
+                    push       L0
+                    move       L0,#$F5.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    pop        L0
+                    xconnect
+                    push       #$1.L
+                    pop        L1
+                    push       L1
+                    pop        L0
+                    xstopf
+                    push       #$1.L
+                    pop        L1
+                    push       L1
+                    pop        L0
+                    move       L0,#$2.L
+                    push       L0
+                    xreps      #$2.L
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,{$06.B,$00.B,$80.B,$25.B,$F5.B,$00.B,$00.B,$00.B,$00.B,$00.B,$F4.B,$01.B,$19.B,$00.B,$14.B,$00.B,$00.B,$00.B}
+                    push       #$1.L
+                    xsetpar    {$06.B,$00.B,$80.B,$25.B,$F5.B,$00.B,$00.B,$00.B,$00.B,$00.B,$F4.B,$01.B,$19.B,$00.B,$14.B,$00.B,$00.B,$00.B}
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    xawlen     S2
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "DONE",I0
+                    pop        L0
+                    eoj
+                    eoj
+
+
+IDENT#
+;    JOBNAME:IDENT
+;    JOBCOMMENT:Identdaten
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;    RESULT:ID_BMW_NR
+;    RESULTTYPE:string
+;    RESULTCOMMENT:BMW-Teilenummer
+;    RESULT:ID_HW_NR
+;    RESULTTYPE:int
+;    RESULTCOMMENT:BMW-Hardwarenummer
+;    RESULT:ID_COD_INDEX
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Codier-Index
+;    RESULT:ID_DIAG_INDEX
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Diagnose-Index
+;    RESULT:ID_BUS_INDEX
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Bus-Index
+;    RESULT:ID_DATUM_KW
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Herstelldatum KW
+;    RESULT:ID_DATUM_JAHR
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Herstelldatum Jahr
+;    RESULT:ID_LIEF_NR
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Lieferanten-Nummer
+;    RESULT:ID_LIEF_TEXT
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Lieferanten-Nummer
+;    RESULT:ID_SW_NR
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Softwarenummer
+;    RESULT:TELEGRAMM
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Antworttelegramm
+;
+                    clear      S1
+                    move       S1,{$FF.B,$04.B,$00.B}
+                    clear      S2
+                    move       S2,S1
+                    nop
+                    nop
+                    nop
+                    move       L0,#$0.L
+                    push       L0
+                    move       L0,#$F5.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S3
+                    xsend      S3,S2
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    etag       __00000364,"TELEGRAMM"
+                    push       #$1.L
+                    jump       __0000036A
+__00000364:         push       #$0.L
+__0000036A:         pop        L0
+                    jz         __00000394
+                    nop
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    ergy       "TELEGRAMM",S1
+                    pop        L0
+__00000394:         clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __00000432
+                    push       #$1.L
+                    jump       __00000438
+__00000432:         push       #$0.L
+__00000438:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S5,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    move       L0,#$1.L
+                    strcmp     S5,"OKAY"
+                    jz         __000004D2
+                    move       L0,#$0.L
+__000004D2:         push       L0
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    move       L0,#$0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jnz        __00000507
+                    push       #$0.L
+                    jump       __0000050D
+__00000507:         push       #$1.L
+__0000050D:         pop        L0
+                    jz         __0000053A
+                    nop
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__0000053A:         etag       __00000558,"ID_BMW_NR"
+                    push       #$1.L
+                    jump       __0000055E
+__00000558:         push       #$0.L
+__0000055E:         pop        L0
+                    jz         __00000E4B
+                    nop
+                    move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$F0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$D0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __000005D2
+                    push       #$0.L
+                    jump       __000005D8
+__000005D2:         push       #$1.L
+__000005D8:         pop        L0
+                    jz         __00000D74
+                    nop
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    clear      S6
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S4
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"RoverPartNumPrefix"
+                    push       #$1.L
+                    tabset     "RoverPartNumPrefix"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"ROVER_NR"
+                    push       #$1.L
+                    move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$F.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$4.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    asl        L0,L1
+                    push       L0
+                    move       L0,#$4.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$F0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$4.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    adds       L0,L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "ROVER_NR",S1
+                    jz         __00000778
+                    push       #$1.L
+                    jump       __0000077E
+__00000778:         push       #$0.L
+__0000077E:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"PREFIX"
+                    push       #$1.L
+                    tabget     S6,"PREFIX"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"000000"
+                    push       #$1.L
+                    clear      S7
+                    move       S7,S1
+                    pop        L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    move       S0[#$2],B2
+                    move       S0[#$3],B3
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S4
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$4.L
+                    push       L0
+                    move       L0,#$3.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$4.L
+                    move       L1,#$3.L
+                    move       S4,S1[L0]L1
+                    slen       L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    move       L0,#$0.L
+                    push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S4
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$F.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S4[L1],B0
+                    pop        L0
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S4
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S4
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$100.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    adds       L0,L1
+                    push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S4
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$100.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    move       L0,#$100.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    adds       L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    move       S0[#$2],B2
+                    move       S0[#$3],B3
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    move       L0,S0[#$0]
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2dez    S4,L0
+                    push       #$1.L
+                    pop        L1
+                    move       L0,L2
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    move       S0[#$2],B2
+                    move       S0[#$3],B3
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S4
+                    strlen     L0,S1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    move       S0[#$4],B0
+                    move       S0[#$5],B1
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$4]
+                    push       L0
+                    move       L0,#$6.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __00000AC4
+                    push       #$0.L
+                    jump       __00000ACA
+__00000AC4:         push       #$1.L
+__00000ACA:         pop        L0
+                    jz         __00000B11
+                    nop
+                    clear      S1
+                    move       S1,S7
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S7
+                    strcat     S7,S4
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    jump       __00000D1C
+__00000B11:         clear      L0
+                    move       I0,S0[#$4]
+                    push       L0
+                    move       L0,#$6.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jc         __00000B43
+                    push       #$0.L
+                    jump       __00000B49
+__00000B43:         push       #$1.L
+__00000B49:         pop        L0
+                    jz         __00000BF8
+                    nop
+                    clear      S1
+                    move       S1,S7
+                    push       #$1.L
+                    clear      L0
+                    move       I0,S0[#$4]
+                    push       L0
+                    atsp       L2,#$4.L
+                    clear      S1
+                    strcat     S1,S7
+                    move       L0,L2
+                    adds       L0,#$1.L
+                    scut       S1,L0
+                    slen       L0,S1
+                    move       S1[L0],#$0.B
+                    clear      S7
+                    move       S7,S1
+                    push       #$1.L
+                    pop        L1
+                    move       L0,L2
+                    move       S0[#$4],B0
+                    move       S0[#$5],B1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S7
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    strcat     S7,S4
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    jump       __00000D1C
+__00000BF8:         clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,""
+                    strcat     S1,S4
+                    scut       S1,#$1.I
+                    srevrs     S1
+                    scat       S1,""
+                    move       S4,S1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      L0
+                    move       I0,S0[#$4]
+                    push       L0
+                    move       L0,#$6.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    subb       L0,L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    clear      S1
+                    strcat     S1,S4
+                    move       L0,L2
+                    adds       L0,#$1.L
+                    scut       S1,L0
+                    slen       L0,S1
+                    move       S1[L0],#$0.B
+                    clear      S4
+                    move       S4,S1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,""
+                    strcat     S1,S4
+                    scut       S1,#$1.I
+                    srevrs     S1
+                    scat       S1,""
+                    move       S4,S1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S7
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S7
+                    strcat     S7,S4
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+__00000D1C:         clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S7
+                    push       #$1.L
+                    strcat     S6,S7
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    ergs       "ID_BMW_NR",S1
+                    pop        L0
+                    jump       __00000E4B
+__00000D74:         clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$3.L
+                    push       L0
+                    move       L0,#$4.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$3.L
+                    move       L1,#$4.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    move       L0,#$0.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    clear      S1
+                    move       S1,S4
+                    move       L0,#$1.L
+                    serase     S1[#$0],L0
+                    clear      S4
+                    strcat     S4,S1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "ID_BMW_NR",S1
+                    pop        L0
+__00000E4B:         etag       __00000E68,"ID_HW_NR"
+                    push       #$1.L
+                    jump       __00000E6E
+__00000E68:         push       #$0.L
+__00000E6E:         pop        L0
+                    jz         __00000F12
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$7.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$7.L
+                    move       L1,#$1.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    a2fix      L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    ergi       "ID_HW_NR",I0
+                    pop        L0
+__00000F12:         etag       __00000F33,"ID_COD_INDEX"
+                    push       #$1.L
+                    jump       __00000F39
+__00000F33:         push       #$0.L
+__00000F39:         pop        L0
+                    jz         __00000FE1
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$8.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$8.L
+                    move       L1,#$1.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    a2fix      L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    ergi       "ID_COD_INDEX",I0
+                    pop        L0
+__00000FE1:         etag       __00001003,"ID_DIAG_INDEX"
+                    push       #$1.L
+                    jump       __00001009
+__00001003:         push       #$0.L
+__00001009:         pop        L0
+                    jz         __000010B2
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$9.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$9.L
+                    move       L1,#$1.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    a2fix      L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    ergi       "ID_DIAG_INDEX",I0
+                    pop        L0
+__000010B2:         etag       __000010D3,"ID_BUS_INDEX"
+                    push       #$1.L
+                    jump       __000010D9
+__000010D3:         push       #$0.L
+__000010D9:         pop        L0
+                    jz         __00001181
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$A.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$A.L
+                    move       L1,#$1.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    a2fix      L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    ergi       "ID_BUS_INDEX",I0
+                    pop        L0
+__00001181:         etag       __000011A1,"ID_DATUM_KW"
+                    push       #$1.L
+                    jump       __000011A7
+__000011A1:         push       #$0.L
+__000011A7:         pop        L0
+                    jz         __0000124E
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$B.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$B.L
+                    move       L1,#$1.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    a2fix      L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    ergi       "ID_DATUM_KW",I0
+                    pop        L0
+__0000124E:         etag       __00001270,"ID_DATUM_JAHR"
+                    push       #$1.L
+                    jump       __00001276
+__00001270:         push       #$0.L
+__00001276:         pop        L0
+                    jz         __0000131F
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$C.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$C.L
+                    move       L1,#$1.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    a2fix      L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    ergi       "ID_DATUM_JAHR",I0
+                    pop        L0
+__0000131F:         etag       __0000133E,"ID_LIEF_NR"
+                    push       #$1.L
+                    jump       __00001344
+__0000133E:         push       #$0.L
+__00001344:         pop        L0
+                    jz         __000013EA
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$D.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$D.L
+                    move       L1,#$1.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    a2fix      L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    ergi       "ID_LIEF_NR",I0
+                    pop        L0
+__000013EA:         etag       __0000140B,"ID_LIEF_TEXT"
+                    push       #$1.L
+                    jump       __00001411
+__0000140B:         push       #$0.L
+__00001411:         pop        L0
+                    jz         __00001548
+                    nop
+                    clear      S1
+                    move       S1,"Lieferanten"
+                    push       #$1.L
+                    tabset     "Lieferanten"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"LIEF_NR"
+                    push       #$1.L
+                    move       L0,#$D.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "LIEF_NR",S1
+                    jz         __000014C8
+                    push       #$1.L
+                    jump       __000014CE
+__000014C8:         push       #$0.L
+__000014CE:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"LIEF_TEXT"
+                    push       #$1.L
+                    tabget     S4,"LIEF_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "ID_LIEF_TEXT",S1
+                    pop        L0
+__00001548:         etag       __00001565,"ID_SW_NR"
+                    push       #$1.L
+                    jump       __0000156B
+__00001565:         push       #$0.L
+__0000156B:         pop        L0
+                    jz         __0000160F
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$E.L
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    move       S1,S3
+                    move       L0,#$E.L
+                    move       L1,#$1.L
+                    clear      S4
+                    y2bcd      S4,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    a2fix      L0,S4
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    ergi       "ID_SW_NR",I0
+                    pop        L0
+__0000160F:         clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+FS_LESEN#
+;    JOBNAME:FS_LESEN
+;    JOBCOMMENT:Fehlerspeicher lesen
+;    JOBCOMMENT:Low-Konzept nach Lastenheft Codierung/Diagnose
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;    RESULT:F_ORT_NR
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Index fuer Fehlerort
+;    RESULT:F_ORT_TEXT
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Text zu Fehlerort
+;    RESULTCOMMENT:table FOrtTexte ORTTEXT
+;    RESULT:F_HFK
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Fehlerhaeufigkeit
+;    RESULT:F_ART_ANZ
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Anzahl der Fehlerarten
+;    RESULTCOMMENT:immer 1
+;    RESULT:F_UW_ANZ
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Anzahl der Umweltbedingungen
+;    RESULTCOMMENT:immer 0
+;    RESULT:F_ART1_NR
+;    RESULTTYPE:int
+;    RESULTCOMMENT:
+;    RESULT:F_ART1_TEXT
+;    RESULTTYPE:string
+;    RESULTCOMMENT:table FArtTexte ARTTEXT
+;    RESULT:F_HEX_CODE
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Fehlerdaten pro Fehler als Hexcode
+;
+                    clear      S1
+                    move       S1,{$FF.B,$05.B,$04.B,$01.B}
+                    clear      S2
+                    move       S2,S1
+                    nop
+                    move       L0,#$0.L
+                    push       L0
+                    move       L0,#$F5.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S3
+                    xsend      S3,S2
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __00001747
+                    push       #$1.L
+                    jump       __0000174D
+__00001747:         push       #$0.L
+__0000174D:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S4,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    move       L0,#$1.L
+                    strcmp     S4,"OKAY"
+                    jz         __000017E7
+                    move       L0,#$0.L
+__000017E7:         push       L0
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    move       L0,#$0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jnz        __0000181C
+                    push       #$0.L
+                    jump       __00001822
+__0000181C:         push       #$1.L
+__00001822:         pop        L0
+                    jz         __0000184F
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__0000184F:         move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __000018A5
+                    move       I1,#$FFFFFFFF.I
+__000018A5:         push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __000018CE
+                    push       #$0.L
+                    jump       __000018D4
+__000018CE:         push       #$1.L
+__000018D4:         pop        L0
+                    jz         __00001907
+                    nop
+                    clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__00001907:         clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __0000191B
+                    move       I1,#$FFFFFFFF.I
+__0000191B:         push       L0
+                    move       L0,#$F.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    ja         __00001944
+                    push       #$0.L
+                    jump       __0000194A
+__00001944:         push       #$1.L
+__0000194A:         pop        L0
+                    jz         __0000198B
+                    nop
+                    clear      S1
+                    move       S1,"ERROR_FEHLERANZAHL"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__0000198B:         move       L0,#$0.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+__000019AB:         clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    clear      S5
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$4.L
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00001A0F
+                    move       I1,#$FFFFFFFF.I
+__00001A0F:         push       L0
+                    atsp       L1,#$8.L
+                    push       L1
+                    jpl        __00001A33
+                    move       L0,#$0.L
+                    subb       L0,L1
+                    pop        L1
+                    push       L0
+__00001A33:         atsp       L1,#$8.L
+                    push       L1
+                    jpl        __00001A54
+                    move       L0,#$0.L
+                    subb       L0,L1
+                    pop        L1
+                    push       L0
+__00001A54:         pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    atsp       L0,#$8.L
+                    atsp       L1,#$C.L
+                    xor        L0,L1
+                    jpl        __00001A8D
+                    pop        L1
+                    move       L0,#$0.L
+                    subb       L0,L1
+                    jump       __00001A90
+__00001A8D:         pop        L0
+__00001A90:         pop        L1
+                    pop        L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    adds       L0,L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    move       S1,S3
+                    move       L0,L2
+                    move       L1,#$2.L
+                    move       S5,S1[L0]L1
+                    slen       L0,S5
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    etag       __00001B05,"F_ORT_NR"
+                    push       #$1.L
+                    jump       __00001B0B
+__00001B05:         push       #$0.L
+__00001B0B:         pop        L0
+                    jz         __00001BC1
+                    nop
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$C0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    asl        L0,L1
+                    push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    or         L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_ORT_NR",I0
+                    pop        L0
+__00001BC1:         etag       __00001BE0,"F_ORT_TEXT"
+                    push       #$1.L
+                    jump       __00001BE6
+__00001BE0:         push       #$0.L
+__00001BE6:         pop        L0
+                    jz         __00001DF9
+                    nop
+                    clear      S1
+                    move       S1,"FOrtTexte"
+                    push       #$1.L
+                    tabset     "FOrtTexte"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$C0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    asl        L0,L1
+                    push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    or         L0,L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S6,L0
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    move       L0,#$5.L
+                    push       L0
+                    clear      S1
+                    move       S1,S6
+                    move       L0,#$5.L
+                    serase     S1[#$2],L0
+                    clear      S6
+                    strcat     S6,S1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"ORT"
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    move       S1,S6
+                    tabseek    "ORT",S1
+                    jz         __00001D7F
+                    push       #$1.L
+                    jump       __00001D85
+__00001D7F:         push       #$0.L
+__00001D85:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"ORTTEXT"
+                    push       #$1.L
+                    tabget     S6,"ORTTEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    ergs       "F_ORT_TEXT",S1
+                    pop        L0
+__00001DF9:         etag       __00001E13,"F_HFK"
+                    push       #$1.L
+                    jump       __00001E19
+__00001E13:         push       #$0.L
+__00001E19:         pop        L0
+                    jz         __00001E7C
+                    nop
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$1F.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_HFK",I0
+                    pop        L0
+__00001E7C:         etag       __00001E99,"F_UW_ANZ"
+                    push       #$1.L
+                    jump       __00001E9F
+__00001E99:         push       #$0.L
+__00001E9F:         pop        L0
+                    jz         __00001ECC
+                    nop
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_UW_ANZ",I0
+                    pop        L0
+__00001ECC:         etag       __00001EEA,"F_ART_ANZ"
+                    push       #$1.L
+                    jump       __00001EF0
+__00001EEA:         push       #$0.L
+__00001EF0:         pop        L0
+                    jz         __00001F1E
+                    nop
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_ART_ANZ",I0
+                    pop        L0
+__00001F1E:         etag       __00001F3C,"F_ART1_NR"
+                    push       #$1.L
+                    jump       __00001F42
+__00001F3C:         push       #$0.L
+__00001F42:         pop        L0
+                    jz         __00001FC0
+                    nop
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$20.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$5.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_ART1_NR",I0
+                    pop        L0
+__00001FC0:         etag       __00001FE0,"F_ART1_TEXT"
+                    push       #$1.L
+                    jump       __00001FE6
+__00001FE0:         push       #$0.L
+__00001FE6:         pop        L0
+                    jz         __0000213E
+                    nop
+                    clear      S1
+                    move       S1,"FArtTexte"
+                    push       #$1.L
+                    tabset     "FArtTexte"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"ARTNR"
+                    push       #$1.L
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$20.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$5.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "ARTNR",S1
+                    jz         __000020C3
+                    push       #$1.L
+                    jump       __000020C9
+__000020C3:         push       #$0.L
+__000020C9:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"ARTTEXT"
+                    push       #$1.L
+                    tabget     S6,"ARTTEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    ergs       "F_ART1_TEXT",S1
+                    pop        L0
+__0000213E:         etag       __0000215D,"F_HEX_CODE"
+                    push       #$1.L
+                    jump       __00002163
+__0000215D:         push       #$0.L
+__00002163:         pop        L0
+                    jz         __0000218E
+                    nop
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    ergy       "F_HEX_CODE",S1
+                    pop        L0
+__0000218E:         enewset
+                    push       #$1.L
+                    pop        L1
+                    push       L1
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __000021B3
+                    move       I1,#$FFFFFFFF.I
+__000021B3:         push       L0
+                    atsp       L0,#$4.L
+                    adds       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __000021F4
+                    move       I1,#$FFFFFFFF.I
+__000021F4:         push       L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __0000220B
+                    move       I1,#$FFFFFFFF.I
+__0000220B:         push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jl         __0000222A
+                    push       #$0.L
+                    jump       __00002230
+__0000222A:         push       #$1.L
+__00002230:         pop        L0
+                    jz         __0000223F
+                    jump       __000019AB
+__0000223F:         clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+FS_LOESCHEN#
+;    JOBNAME:FS_LOESCHEN
+;    JOBCOMMENT:Fehlerspeicher loeschen
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;
+                    clear      S1
+                    move       S1,{$FF.B,$04.B,$05.B}
+                    clear      S2
+                    move       S2,S1
+                    nop
+                    move       L0,#$0.L
+                    push       L0
+                    move       L0,#$F5.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S3
+                    xsend      S3,S2
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __00002376
+                    push       #$1.L
+                    jump       __0000237C
+__00002376:         push       #$0.L
+__0000237C:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S4,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+IS_LESEN#
+;    JOBNAME:IS_LESEN
+;    JOBCOMMENT:Infospeicher lesen
+;    JOBCOMMENT:Low-Konzept nach Lastenheft Codierung/Diagnose
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;    RESULT:F_ORT_NR
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Index fuer Fehlerort
+;    RESULT:F_ORT_TEXT
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Text zu Fehlerort
+;    RESULTCOMMENT:table IOrtTexte ORTTEXT
+;    RESULT:F_HFK
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Fehlerhaeufigkeit
+;    RESULT:F_ART_ANZ
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Anzahl der Fehlerarten
+;    RESULTCOMMENT:immer 1
+;    RESULT:F_UW_ANZ
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Anzahl der Umweltbedingungen
+;    RESULTCOMMENT:immer 0
+;    RESULT:F_ART1_NR
+;    RESULTTYPE:int
+;    RESULTCOMMENT:
+;    RESULT:F_ART1_TEXT
+;    RESULTTYPE:string
+;    RESULTCOMMENT:table IArtTexte ARTTEXT
+;    RESULT:F_HEX_CODE
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Fehlerdaten pro Fehler als Hexcode
+;
+                    clear      S1
+                    move       S1,{$FF.B,$05.B,$14.B,$01.B}
+                    clear      S2
+                    move       S2,S1
+                    nop
+                    move       L0,#$0.L
+                    push       L0
+                    move       L0,#$F5.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S3
+                    xsend      S3,S2
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __0000250A
+                    push       #$1.L
+                    jump       __00002510
+__0000250A:         push       #$0.L
+__00002510:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S4,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    move       L0,#$1.L
+                    strcmp     S4,"OKAY"
+                    jz         __000025AA
+                    move       L0,#$0.L
+__000025AA:         push       L0
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    move       L0,#$0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jnz        __000025DF
+                    push       #$0.L
+                    jump       __000025E5
+__000025DF:         push       #$1.L
+__000025E5:         pop        L0
+                    jz         __00002612
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__00002612:         move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00002668
+                    move       I1,#$FFFFFFFF.I
+__00002668:         push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __00002691
+                    push       #$0.L
+                    jump       __00002697
+__00002691:         push       #$1.L
+__00002697:         pop        L0
+                    jz         __000026CA
+                    nop
+                    clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__000026CA:         clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __000026DE
+                    move       I1,#$FFFFFFFF.I
+__000026DE:         push       L0
+                    move       L0,#$F.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    ja         __00002707
+                    push       #$0.L
+                    jump       __0000270D
+__00002707:         push       #$1.L
+__0000270D:         pop        L0
+                    jz         __0000274E
+                    nop
+                    clear      S1
+                    move       S1,"ERROR_FEHLERANZAHL"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__0000274E:         move       L0,#$0.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+__0000276E:         clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    clear      S5
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    move       L0,#$4.L
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __000027D2
+                    move       I1,#$FFFFFFFF.I
+__000027D2:         push       L0
+                    atsp       L1,#$8.L
+                    push       L1
+                    jpl        __000027F6
+                    move       L0,#$0.L
+                    subb       L0,L1
+                    pop        L1
+                    push       L0
+__000027F6:         atsp       L1,#$8.L
+                    push       L1
+                    jpl        __00002817
+                    move       L0,#$0.L
+                    subb       L0,L1
+                    pop        L1
+                    push       L0
+__00002817:         pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    atsp       L0,#$8.L
+                    atsp       L1,#$C.L
+                    xor        L0,L1
+                    jpl        __00002850
+                    pop        L1
+                    move       L0,#$0.L
+                    subb       L0,L1
+                    jump       __00002853
+__00002850:         pop        L0
+__00002853:         pop        L1
+                    pop        L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    adds       L0,L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    move       S1,S3
+                    move       L0,L2
+                    move       L1,#$2.L
+                    move       S5,S1[L0]L1
+                    slen       L0,S5
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    etag       __000028C8,"F_ORT_NR"
+                    push       #$1.L
+                    jump       __000028CE
+__000028C8:         push       #$0.L
+__000028CE:         pop        L0
+                    jz         __00002984
+                    nop
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$C0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    asl        L0,L1
+                    push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    or         L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_ORT_NR",I0
+                    pop        L0
+__00002984:         etag       __000029A3,"F_ORT_TEXT"
+                    push       #$1.L
+                    jump       __000029A9
+__000029A3:         push       #$0.L
+__000029A9:         pop        L0
+                    jz         __00002BBC
+                    nop
+                    clear      S1
+                    move       S1,"IOrtTexte"
+                    push       #$1.L
+                    tabset     "IOrtTexte"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$C0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    asl        L0,L1
+                    push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    or         L0,L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S6,L0
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    move       L0,#$5.L
+                    push       L0
+                    clear      S1
+                    move       S1,S6
+                    move       L0,#$5.L
+                    serase     S1[#$2],L0
+                    clear      S6
+                    strcat     S6,S1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"ORT"
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    move       S1,S6
+                    tabseek    "ORT",S1
+                    jz         __00002B42
+                    push       #$1.L
+                    jump       __00002B48
+__00002B42:         push       #$0.L
+__00002B48:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"ORTTEXT"
+                    push       #$1.L
+                    tabget     S6,"ORTTEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    ergs       "F_ORT_TEXT",S1
+                    pop        L0
+__00002BBC:         etag       __00002BD6,"F_HFK"
+                    push       #$1.L
+                    jump       __00002BDC
+__00002BD6:         push       #$0.L
+__00002BDC:         pop        L0
+                    jz         __00002C3F
+                    nop
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$1F.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_HFK",I0
+                    pop        L0
+__00002C3F:         etag       __00002C5C,"F_UW_ANZ"
+                    push       #$1.L
+                    jump       __00002C62
+__00002C5C:         push       #$0.L
+__00002C62:         pop        L0
+                    jz         __00002C8F
+                    nop
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_UW_ANZ",I0
+                    pop        L0
+__00002C8F:         etag       __00002CAD,"F_ART_ANZ"
+                    push       #$1.L
+                    jump       __00002CB3
+__00002CAD:         push       #$0.L
+__00002CB3:         pop        L0
+                    jz         __00002CE1
+                    nop
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_ART_ANZ",I0
+                    pop        L0
+__00002CE1:         etag       __00002CFF,"F_ART1_NR"
+                    push       #$1.L
+                    jump       __00002D05
+__00002CFF:         push       #$0.L
+__00002D05:         pop        L0
+                    jz         __00002D83
+                    nop
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$20.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$5.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "F_ART1_NR",I0
+                    pop        L0
+__00002D83:         etag       __00002DA3,"F_ART1_TEXT"
+                    push       #$1.L
+                    jump       __00002DA9
+__00002DA3:         push       #$0.L
+__00002DA9:         pop        L0
+                    jz         __00002F01
+                    nop
+                    clear      S1
+                    move       S1,"IArtTexte"
+                    push       #$1.L
+                    tabset     "IArtTexte"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"ARTNR"
+                    push       #$1.L
+                    move       L0,#$1.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S5
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$20.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$5.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "ARTNR",S1
+                    jz         __00002E86
+                    push       #$1.L
+                    jump       __00002E8C
+__00002E86:         push       #$0.L
+__00002E8C:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"ARTTEXT"
+                    push       #$1.L
+                    tabget     S6,"ARTTEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S6
+                    push       #$1.L
+                    ergs       "F_ART1_TEXT",S1
+                    pop        L0
+__00002F01:         etag       __00002F20,"F_HEX_CODE"
+                    push       #$1.L
+                    jump       __00002F26
+__00002F20:         push       #$0.L
+__00002F26:         pop        L0
+                    jz         __00002F51
+                    nop
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    ergy       "F_HEX_CODE",S1
+                    pop        L0
+__00002F51:         enewset
+                    push       #$1.L
+                    pop        L1
+                    push       L1
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00002F76
+                    move       I1,#$FFFFFFFF.I
+__00002F76:         push       L0
+                    atsp       L0,#$4.L
+                    adds       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00002FB7
+                    move       I1,#$FFFFFFFF.I
+__00002FB7:         push       L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00002FCE
+                    move       I1,#$FFFFFFFF.I
+__00002FCE:         push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jl         __00002FED
+                    push       #$0.L
+                    jump       __00002FF3
+__00002FED:         push       #$1.L
+__00002FF3:         pop        L0
+                    jz         __00003002
+                    jump       __0000276E
+__00003002:         clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+DIAGNOSE_ENDE#
+;    JOBNAME:DIAGNOSE_ENDE
+;    JOBCOMMENT:Diagnose beenden
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;
+                    clear      S1
+                    move       S1,{$FF.B,$04.B,$9F.B}
+                    clear      S2
+                    move       S2,S1
+                    nop
+                    move       L0,#$0.L
+                    push       L0
+                    move       L0,#$F5.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S3
+                    xsend      S3,S2
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __00003139
+                    push       #$1.L
+                    jump       __0000313F
+__00003139:         push       #$0.L
+__0000313F:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S4,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+ENERGIESPARMODE#
+;    JOBNAME:ENERGIESPARMODE
+;    JOBCOMMENT:Einstellen des Energiesparmodes
+;    ARG:PRODUKTIONSMODE
+;    ARGTYPE:string
+;    ARGCOMMENT:"ein" -> Produktions Mode ein
+;    ARGCOMMENT:"aus" -> Produktions Mode aus
+;    ARGCOMMENT:table DigitalArgument TEXT
+;    ARGCOMMENT:Default: "aus"
+;    ARG:TRANSPORTMODE
+;    ARGTYPE:string
+;    ARGCOMMENT:"ein" -> Transport Mode ein
+;    ARGCOMMENT:"aus" -> Transport Mode aus
+;    ARGCOMMENT:table DigitalArgument TEXT
+;    ARGCOMMENT:Default: "aus"
+;    ARG:WERKSTATTMODE
+;    ARGTYPE:string
+;    ARGCOMMENT:"ein" -> Werkstatt Mode ein
+;    ARGCOMMENT:"aus" -> Werkstatt Mode aus
+;    ARGCOMMENT:table DigitalArgument TEXT
+;    ARGCOMMENT:Default: "aus"
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;    RESULTCOMMENT:table JobResult STATUS_TEXT
+;    RESULT:_TEL_AUFTRAG
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Hex-Auftrag an SG
+;    RESULT:_TEL_ANTWORT
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Hex-Antwort von SG
+;
+                    clear      S1
+                    move       S1,{$FF.B,$05.B,$9C.B,$00.B}
+                    clear      S2
+                    move       S2,S1
+                    nop
+                    nop
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+                    clear      S1
+                    move       S1,"PRODUKTIONSMODE"
+                    push       #$1.L
+                    move       L0,#$1.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00003232
+                    move       I1,#$FFFFFFFF.I
+__00003232:         push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    gettmr     L6
+                    settmr     #$400.L
+                    pars       S1,#$1.I
+                    jnz        __0000327F
+                    move       L0,#$0.L
+                    test       L0,#$2.L
+                    jnz        __00003346
+                    and        L0,#$1.L
+                    move       L2,L0
+                    jump       __000032DF
+__0000327F:         move       L0,#$0.L
+__00003286:         comp       S1[L0],#$0.B
+                    jz         __000032A3
+                    or         S1[L0],#' '
+                    adds       L0,#$1.L
+                    jump       __00003286
+__000032A3:         tabset     "DigitalArgument"
+                    jt         __000032EB,#$A.L
+                    tabseek    "TEXT",S1
+                    jz         __00003346
+                    tabget     S1,"WERT"
+                    a2fix      L2,S1
+__000032DF:         push       #$1.L
+                    jump       __0000336C
+__000032EB:         push       #$0.L
+                    ergs       "JOB_MESSAGE","Table DigitalArgument not found"
+                    ergs       "JOB_STATUS","ERROR_TABLE"
+                    jump       __0000336C
+__00003346:         push       #$0.L
+                    ergs       "JOB_STATUS","ERROR_ARGUMENT"
+__0000336C:         clrt
+                    settmr     L6
+                    pop        L1
+                    pop        L0
+                    move       L0,L2
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    push       #$0.L
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __000033B5
+                    push       #$0.L
+                    jump       __000033BB
+__000033B5:         push       #$1.L
+__000033BB:         pop        L0
+                    jz         __000033C8
+                    nop
+                    eoj
+__000033C8:         clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __000033DC
+                    move       I1,#$FFFFFFFF.I
+__000033DC:         push       L0
+                    pop        L0
+                    jz         __0000342E
+                    nop
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __000033FE
+                    move       I1,#$FFFFFFFF.I
+__000033FE:         push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    or         L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+__0000342E:         clear      S1
+                    move       S1,"TRANSPORTMODE"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00003468
+                    move       I1,#$FFFFFFFF.I
+__00003468:         push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    gettmr     L6
+                    settmr     #$400.L
+                    pars       S1,#$2.I
+                    jnz        __000034B5
+                    move       L0,#$0.L
+                    test       L0,#$2.L
+                    jnz        __0000357C
+                    and        L0,#$1.L
+                    move       L2,L0
+                    jump       __00003515
+__000034B5:         move       L0,#$0.L
+__000034BC:         comp       S1[L0],#$0.B
+                    jz         __000034D9
+                    or         S1[L0],#' '
+                    adds       L0,#$1.L
+                    jump       __000034BC
+__000034D9:         tabset     "DigitalArgument"
+                    jt         __00003521,#$A.L
+                    tabseek    "TEXT",S1
+                    jz         __0000357C
+                    tabget     S1,"WERT"
+                    a2fix      L2,S1
+__00003515:         push       #$1.L
+                    jump       __000035A2
+__00003521:         push       #$0.L
+                    ergs       "JOB_MESSAGE","Table DigitalArgument not found"
+                    ergs       "JOB_STATUS","ERROR_TABLE"
+                    jump       __000035A2
+__0000357C:         push       #$0.L
+                    ergs       "JOB_STATUS","ERROR_ARGUMENT"
+__000035A2:         clrt
+                    settmr     L6
+                    pop        L1
+                    pop        L0
+                    move       L0,L2
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    push       #$0.L
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __000035EB
+                    push       #$0.L
+                    jump       __000035F1
+__000035EB:         push       #$1.L
+__000035F1:         pop        L0
+                    jz         __000035FE
+                    nop
+                    eoj
+__000035FE:         clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00003612
+                    move       I1,#$FFFFFFFF.I
+__00003612:         push       L0
+                    pop        L0
+                    jz         __00003664
+                    nop
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00003634
+                    move       I1,#$FFFFFFFF.I
+__00003634:         push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    or         L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+__00003664:         clear      S1
+                    move       S1,"WERKSTATTMODE"
+                    push       #$1.L
+                    move       L0,#$3.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __0000369E
+                    move       I1,#$FFFFFFFF.I
+__0000369E:         push       L0
+                    move       L0,#$0.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    gettmr     L6
+                    settmr     #$400.L
+                    pars       S1,#$3.I
+                    jnz        __000036EB
+                    move       L0,#$0.L
+                    test       L0,#$2.L
+                    jnz        __000037B2
+                    and        L0,#$1.L
+                    move       L2,L0
+                    jump       __0000374B
+__000036EB:         move       L0,#$0.L
+__000036F2:         comp       S1[L0],#$0.B
+                    jz         __0000370F
+                    or         S1[L0],#' '
+                    adds       L0,#$1.L
+                    jump       __000036F2
+__0000370F:         tabset     "DigitalArgument"
+                    jt         __00003757,#$A.L
+                    tabseek    "TEXT",S1
+                    jz         __000037B2
+                    tabget     S1,"WERT"
+                    a2fix      L2,S1
+__0000374B:         push       #$1.L
+                    jump       __000037D8
+__00003757:         push       #$0.L
+                    ergs       "JOB_MESSAGE","Table DigitalArgument not found"
+                    ergs       "JOB_STATUS","ERROR_TABLE"
+                    jump       __000037D8
+__000037B2:         push       #$0.L
+                    ergs       "JOB_STATUS","ERROR_ARGUMENT"
+__000037D8:         clrt
+                    settmr     L6
+                    pop        L1
+                    pop        L0
+                    move       L0,L2
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    push       #$0.L
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __00003821
+                    push       #$0.L
+                    jump       __00003827
+__00003821:         push       #$1.L
+__00003827:         pop        L0
+                    jz         __00003834
+                    nop
+                    eoj
+__00003834:         clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00003848
+                    move       I1,#$FFFFFFFF.I
+__00003848:         push       L0
+                    pop        L0
+                    jz         __0000389A
+                    nop
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __0000386A
+                    move       I1,#$FFFFFFFF.I
+__0000386A:         push       L0
+                    move       L0,#$4.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    or         L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+__0000389A:         move       L0,#$0.L
+                    push       L0
+                    move       L0,#$F5.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    move       L0,#$3.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __000038DD
+                    move       I1,#$FFFFFFFF.I
+__000038DD:         push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    etag       __00003912,"_TEL_AUFTRAG"
+                    push       #$1.L
+                    jump       __00003918
+__00003912:         push       #$0.L
+__00003918:         pop        L0
+                    jz         __00003945
+                    nop
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    ergy       "_TEL_AUFTRAG",S1
+                    pop        L0
+__00003945:         clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S3
+                    xsend      S3,S2
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    etag       __0000399C,"_TEL_ANTWORT"
+                    push       #$1.L
+                    jump       __000039A2
+__0000399C:         push       #$0.L
+__000039A2:         pop        L0
+                    jz         __000039CF
+                    nop
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    ergy       "_TEL_ANTWORT",S1
+                    pop        L0
+__000039CF:         clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __00003A6D
+                    push       #$1.L
+                    jump       __00003A73
+__00003A6D:         push       #$0.L
+__00003A73:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S4,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+CODIERUNG_LESEN#
+;    JOBNAME:CODIERUNG_LESEN
+;    JOBCOMMENT:Auslesen der Codierdaten
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;    RESULT:CODE
+;    RESULTTYPE:string
+;    RESULTCOMMENT:17 Codierbytes in Hex
+;    RESULT:TELEGRAMM
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Antworttelegramm
+;
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S1
+                    move       S1,{$F5.B,$04.B,$08.B}
+                    push       #$1.L
+                    clear      S2
+                    xsend      S2,{$F5.B,$04.B,$08.B}
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    etag       __00003B4F,"TELEGRAMM"
+                    push       #$1.L
+                    jump       __00003B55
+__00003B4F:         push       #$0.L
+__00003B55:         pop        L0
+                    jz         __00003B7F
+                    nop
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    ergy       "TELEGRAMM",S1
+                    pop        L0
+__00003B7F:         clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __00003C1D
+                    push       #$1.L
+                    jump       __00003C23
+__00003C1D:         push       #$0.L
+__00003C23:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S4,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    move       L0,#$1.L
+                    strcmp     S4,"OKAY"
+                    jz         __00003CBD
+                    move       L0,#$0.L
+__00003CBD:         push       L0
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    move       L0,#$0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jnz        __00003CF2
+                    push       #$0.L
+                    jump       __00003CF8
+__00003CF2:         push       #$1.L
+__00003CF8:         pop        L0
+                    jz         __00003D25
+                    nop
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__00003D25:         etag       __00003D3E,"CODE"
+                    push       #$1.L
+                    jump       __00003D44
+__00003D3E:         push       #$0.L
+__00003D44:         pop        L0
+                    jz         __0000406F
+                    nop
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    move       L0,#$3.L
+                    push       L0
+                    move       L0,#$11.L
+                    push       L0
+                    move       S1,S2
+                    move       L0,#$3.L
+                    move       L1,#$11.L
+                    clear      S3
+                    y2hex      S3,S1[L0]L1
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    move       L0,#$21.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+                    move       L0,#$32.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00003E07
+                    move       I1,#$FFFFFFFF.I
+__00003E07:         push       L0
+                    atsp       L0,#$4.L
+                    subb       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    move       L0,#$0.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S3[L1],B0
+                    pop        L0
+__00003E4C:         clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00003E60
+                    move       I1,#$FFFFFFFF.I
+__00003E60:         push       L0
+                    atsp       L0,#$4.L
+                    subb       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00003E9E
+                    move       I1,#$FFFFFFFF.I
+__00003E9E:         push       L0
+                    atsp       L0,#$4.L
+                    subb       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S3[L1],B0
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00003F0F
+                    move       I1,#$FFFFFFFF.I
+__00003F0F:         push       L0
+                    atsp       L0,#$4.L
+                    subb       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00003F4D
+                    move       I1,#$FFFFFFFF.I
+__00003F4D:         push       L0
+                    atsp       L0,#$4.L
+                    subb       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S3[L1],B0
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __00003FBE
+                    move       I1,#$FFFFFFFF.I
+__00003FBE:         push       L0
+                    atsp       L0,#$4.L
+                    subb       L0,#$1.L
+                    push       L0
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    move       L0,#$20.L
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S3[L1],B0
+                    pop        L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00004017
+                    move       I1,#$FFFFFFFF.I
+__00004017:         push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jg         __00004040
+                    push       #$0.L
+                    jump       __00004046
+__00004040:         push       #$1.L
+__00004046:         pop        L0
+                    jz         __00004055
+                    jump       __00003E4C
+__00004055:         clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    ergs       "CODE",S1
+                    pop        L0
+__0000406F:         clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+STATUS_IO#
+;    JOBNAME:STATUS_IO
+;    JOBCOMMENT:Status lesen
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;    RESULT:STAT_TASTE_SITZHEIZUNG_LINKS_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Taste Sitzheizung links
+;    RESULT:STAT_TASTE_SITZHEIZUNG_RECHTS_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Taste Sitzheizung rechts
+;    RESULT:STAT_TASTE_SONNENROLLO_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Taste Sonnenrollo
+;    RESULT:STAT_TASTE_SURROUND_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Taste SURROUND
+;    RESULT:STAT_LED_SURROUND_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:LED SURROUND
+;    RESULT:STAT_FUNKTION_SURROUND_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Funktion SURROUND
+;    RESULT:STAT_KLEMME_R_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Status Klemme R
+;    RESULT:STAT_KLEMME_15_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Status Klemme 15
+;    RESULT:STAT_KLEMME_50_EIN
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Status Klemme 50
+;    RESULT:STAT_KLEMME_30_WERT
+;    RESULTTYPE:real
+;    RESULTCOMMENT:Spannung Klemme 30
+;    RESULT:STAT_KLEMME_30_EINH
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Volt
+;    RESULT:STAT_SONNENROLLO_AUF
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Sonnenrollo Verstellung nach oben aktiv
+;    RESULT:STAT_SONNENROLLO_AB
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Sonnenrollo Verstellung nach unten aktiv
+;    RESULT:STAT_TIST_SITZHEIZUNG_LINKS_WERT
+;    RESULTTYPE:real
+;    RESULTCOMMENT:Isttemperatur Sitzheizung links
+;    RESULT:STAT_TIST_SITZHEIZUNG_LINKS_EINH
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Grad C
+;    RESULT:STAT_TIST_SITZHEIZUNG_RECHTS_WERT
+;    RESULTTYPE:real
+;    RESULTCOMMENT:Isttemperatur Sitzheizung rechts
+;    RESULT:STAT_TIST_SITZHEIZUNG_RECHTS_EINH
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Grad C
+;    RESULT:STAT_LEISTUNG_SITZHEIZUNG_LINKS_WERT
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Heizleistung Sitzheizung links
+;    RESULT:STAT_LEISTUNG_SITZHEIZUNG_LINKS_EINH
+;    RESULTTYPE:string
+;    RESULTCOMMENT:%
+;    RESULT:STAT_LEISTUNG_SITZHEIZUNG_RECHTS_WERT
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Heizleistung Sitzheizung rechts
+;    RESULT:STAT_LEISTUNG_SITZHEIZUNG_RECHTS_EINH
+;    RESULTTYPE:string
+;    RESULTCOMMENT:%
+;    RESULT:STAT_MOTORSTROM_SONNENROLLO_WERT
+;    RESULTTYPE:real
+;    RESULTCOMMENT:Motorstrom Sonnenrollo
+;    RESULT:STAT_MOTORSTROM_SONNENROLLO_EINH
+;    RESULTTYPE:string
+;    RESULTCOMMENT:Ampere
+;    RESULT:STAT_SITZHEIZUNG_LINKS_STUFE
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Sitzheizungsstufe links
+;    RESULT:STAT_SITZHEIZUNG_RECHTS_STUFE
+;    RESULTTYPE:int
+;    RESULTCOMMENT:Sitzheizungsstufe rechts
+;    RESULT:TELEGRAMM
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Antworttelegramm
+;
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S1
+                    move       S1,{$F5.B,$04.B,$0B.B}
+                    push       #$1.L
+                    clear      S2
+                    xsend      S2,{$F5.B,$04.B,$0B.B}
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    etag       __000040F5,"TELEGRAMM"
+                    push       #$1.L
+                    jump       __000040FB
+__000040F5:         push       #$0.L
+__000040FB:         pop        L0
+                    jz         __00004125
+                    nop
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    ergy       "TELEGRAMM",S1
+                    pop        L0
+__00004125:         clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __000041C3
+                    push       #$1.L
+                    jump       __000041C9
+__000041C3:         push       #$0.L
+__000041C9:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S3,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    move       L0,#$1.L
+                    strcmp     S3,"OKAY"
+                    jz         __00004263
+                    move       L0,#$0.L
+__00004263:         push       L0
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    move       L0,#$0.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jnz        __00004298
+                    push       #$0.L
+                    jump       __0000429E
+__00004298:         push       #$1.L
+__0000429E:         pop        L0
+                    jz         __000042CB
+                    nop
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__000042CB:         etag       __00004300,"STAT_TASTE_SITZHEIZUNG_LINKS_EIN"
+                    push       #$1.L
+                    jump       __00004306
+__00004300:         push       #$0.L
+__00004306:         pop        L0
+                    jz         __00004384
+                    nop
+                    move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_TASTE_SITZHEIZUNG_LINKS_EIN",I0
+                    pop        L0
+__00004384:         etag       __000043BA,"STAT_TASTE_SITZHEIZUNG_RECHTS_EIN"
+                    push       #$1.L
+                    jump       __000043C0
+__000043BA:         push       #$0.L
+__000043C0:         pop        L0
+                    jz         __00004456
+                    nop
+                    move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_TASTE_SITZHEIZUNG_RECHTS_EIN",I0
+                    pop        L0
+__00004456:         etag       __00004485,"STAT_TASTE_SONNENROLLO_EIN"
+                    push       #$1.L
+                    jump       __0000448B
+__00004485:         push       #$0.L
+__0000448B:         pop        L0
+                    jz         __0000451A
+                    nop
+                    move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$4.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_TASTE_SONNENROLLO_EIN",I0
+                    pop        L0
+__0000451A:         etag       __00004541,"STAT_KLEMME_50_EIN"
+                    push       #$1.L
+                    jump       __00004547
+__00004541:         push       #$0.L
+__00004547:         pop        L0
+                    jz         __000045CE
+                    nop
+                    move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$80.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$7.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_KLEMME_50_EIN",I0
+                    pop        L0
+__000045CE:         etag       __000045F5,"STAT_KLEMME_15_EIN"
+                    push       #$1.L
+                    jump       __000045FB
+__000045F5:         push       #$0.L
+__000045FB:         pop        L0
+                    jz         __0000466B
+                    nop
+                    move       L0,#$4.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_KLEMME_15_EIN",I0
+                    pop        L0
+__0000466B:         etag       __00004691,"STAT_KLEMME_R_EIN"
+                    push       #$1.L
+                    jump       __00004697
+__00004691:         push       #$0.L
+__00004697:         pop        L0
+                    jz         __0000471D
+                    nop
+                    move       L0,#$4.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_KLEMME_R_EIN",I0
+                    pop        L0
+__0000471D:         etag       __00004745,"STAT_KLEMME_30_WERT"
+                    push       #$1.L
+                    jump       __0000474B
+__00004745:         push       #$0.L
+__0000474B:         pop        L0
+                    jz         __00004814
+                    nop
+                    clear      S1
+                    move       S1,"STAT_KLEMME_30_WERT"
+                    push       #$1.L
+                    move       L0,#$B.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$537.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    move       L0,#$2F00.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    move       L0,L2
+                    fix2flt    F0,L0
+                    move       L0,#$2F00.L
+                    fix2flt    F1,L0
+                    fdiv       F0,F1
+                    ergr       "STAT_KLEMME_30_WERT",F0
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+__00004814:         etag       __0000483C,"STAT_KLEMME_30_EINH"
+                    push       #$1.L
+                    jump       __00004842
+__0000483C:         push       #$0.L
+__00004842:         pop        L0
+                    jz         __0000487C
+                    nop
+                    clear      S1
+                    move       S1,"Volt"
+                    push       #$1.L
+                    ergs       "STAT_KLEMME_30_EINH",S1
+                    pop        L0
+__0000487C:         etag       __000048A8,"STAT_TASTE_SURROUND_EIN"
+                    push       #$1.L
+                    jump       __000048AE
+__000048A8:         push       #$0.L
+__000048AE:         pop        L0
+                    jz         __0000493A
+                    nop
+                    move       L0,#$3.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$8.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$3.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_TASTE_SURROUND_EIN",I0
+                    pop        L0
+__0000493A:         etag       __00004964,"STAT_LED_SURROUND_EIN"
+                    push       #$1.L
+                    jump       __0000496A
+__00004964:         push       #$0.L
+__0000496A:         pop        L0
+                    jz         __000049F4
+                    nop
+                    move       L0,#$5.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$40.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$6.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_LED_SURROUND_EIN",I0
+                    pop        L0
+__000049F4:         etag       __00004A23,"STAT_FUNKTION_SURROUND_EIN"
+                    push       #$1.L
+                    jump       __00004A29
+__00004A23:         push       #$0.L
+__00004A29:         pop        L0
+                    jz         __00004AB8
+                    nop
+                    move       L0,#$5.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$80.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$7.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_FUNKTION_SURROUND_EIN",I0
+                    pop        L0
+__00004AB8:         etag       __00004AE1,"STAT_SONNENROLLO_AUF"
+                    push       #$1.L
+                    jump       __00004AE7
+__00004AE1:         push       #$0.L
+__00004AE7:         pop        L0
+                    jz         __00004B59
+                    nop
+                    move       L0,#$6.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_SONNENROLLO_AUF",I0
+                    pop        L0
+__00004B59:         etag       __00004B81,"STAT_SONNENROLLO_AB"
+                    push       #$1.L
+                    jump       __00004B87
+__00004B81:         push       #$0.L
+__00004B87:         pop        L0
+                    jz         __00004C0F
+                    nop
+                    move       L0,#$6.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    and        L0,L1
+                    push       L0
+                    move       L0,#$1.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    lsr        L0,L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_SONNENROLLO_AB",I0
+                    pop        L0
+__00004C0F:         etag       __00004C48,"STAT_LEISTUNG_SITZHEIZUNG_LINKS_WERT"
+                    push       #$1.L
+                    jump       __00004C4E
+__00004C48:         push       #$0.L
+__00004C4E:         pop        L0
+                    jz         __00004CB9
+                    nop
+                    move       L0,#$8.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_LEISTUNG_SITZHEIZUNG_LINKS_WERT",I0
+                    pop        L0
+__00004CB9:         etag       __00004CF2,"STAT_LEISTUNG_SITZHEIZUNG_LINKS_EINH"
+                    push       #$1.L
+                    jump       __00004CF8
+__00004CF2:         push       #$0.L
+__00004CF8:         pop        L0
+                    jz         __00004D40
+                    nop
+                    clear      S1
+                    move       S1,"%"
+                    push       #$1.L
+                    ergs       "STAT_LEISTUNG_SITZHEIZUNG_LINKS_EINH",S1
+                    pop        L0
+__00004D40:         etag       __00004D7A,"STAT_LEISTUNG_SITZHEIZUNG_RECHTS_WERT"
+                    push       #$1.L
+                    jump       __00004D80
+__00004D7A:         push       #$0.L
+__00004D80:         pop        L0
+                    jz         __00004DEC
+                    nop
+                    move       L0,#$9.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_LEISTUNG_SITZHEIZUNG_RECHTS_WERT",I0
+                    pop        L0
+__00004DEC:         etag       __00004E26,"STAT_LEISTUNG_SITZHEIZUNG_RECHTS_EINH"
+                    push       #$1.L
+                    jump       __00004E2C
+__00004E26:         push       #$0.L
+__00004E2C:         pop        L0
+                    jz         __00004E75
+                    nop
+                    clear      S1
+                    move       S1,"%"
+                    push       #$1.L
+                    ergs       "STAT_LEISTUNG_SITZHEIZUNG_RECHTS_EINH",S1
+                    pop        L0
+__00004E75:         etag       __00004EAA,"STAT_TIST_SITZHEIZUNG_LINKS_WERT"
+                    push       #$1.L
+                    jump       __00004EB0
+__00004EAA:         push       #$0.L
+__00004EB0:         pop        L0
+                    jz         __00004FAA
+                    nop
+                    clear      S1
+                    move       S1,"STAT_TIST_SITZHEIZUNG_LINKS_WERT"
+                    push       #$1.L
+                    move       L0,#$CF828.L
+                    push       L0
+                    move       L0,#$C.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$FBB.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    subb       L0,L1
+                    push       L0
+                    move       L0,#$2710.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    move       L0,L2
+                    fix2flt    F0,L0
+                    move       L0,#$2710.L
+                    fix2flt    F1,L0
+                    fdiv       F0,F1
+                    ergr       "STAT_TIST_SITZHEIZUNG_LINKS_WERT",F0
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+__00004FAA:         etag       __00004FDF,"STAT_TIST_SITZHEIZUNG_LINKS_EINH"
+                    push       #$1.L
+                    jump       __00004FE5
+__00004FDF:         push       #$0.L
+__00004FE5:         pop        L0
+                    jz         __0000502E
+                    nop
+                    clear      S1
+                    move       S1,"Grad C"
+                    push       #$1.L
+                    ergs       "STAT_TIST_SITZHEIZUNG_LINKS_EINH",S1
+                    pop        L0
+__0000502E:         etag       __00005064,"STAT_TIST_SITZHEIZUNG_RECHTS_WERT"
+                    push       #$1.L
+                    jump       __0000506A
+__00005064:         push       #$0.L
+__0000506A:         pop        L0
+                    jz         __00005166
+                    nop
+                    clear      S1
+                    move       S1,"STAT_TIST_SITZHEIZUNG_RECHTS_WERT"
+                    push       #$1.L
+                    move       L0,#$CF828.L
+                    push       L0
+                    move       L0,#$D.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$FBB.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    subb       L0,L1
+                    push       L0
+                    move       L0,#$2710.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    move       L0,L2
+                    fix2flt    F0,L0
+                    move       L0,#$2710.L
+                    fix2flt    F1,L0
+                    fdiv       F0,F1
+                    ergr       "STAT_TIST_SITZHEIZUNG_RECHTS_WERT",F0
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+__00005166:         etag       __0000519C,"STAT_TIST_SITZHEIZUNG_RECHTS_EINH"
+                    push       #$1.L
+                    jump       __000051A2
+__0000519C:         push       #$0.L
+__000051A2:         pop        L0
+                    jz         __000051EC
+                    nop
+                    clear      S1
+                    move       S1,"Grad C"
+                    push       #$1.L
+                    ergs       "STAT_TIST_SITZHEIZUNG_RECHTS_EINH",S1
+                    pop        L0
+__000051EC:         etag       __00005221,"STAT_MOTORSTROM_SONNENROLLO_WERT"
+                    push       #$1.L
+                    jump       __00005227
+__00005221:         push       #$0.L
+__00005227:         pop        L0
+                    jz         __0000530A
+                    nop
+                    clear      S1
+                    move       S1,"STAT_MOTORSTROM_SONNENROLLO_WERT"
+                    push       #$1.L
+                    move       L0,#$10.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       L0,#$7D.L
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    mult       L0,L1
+                    push       L0
+                    move       L0,#$200.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    move       L0,L2
+                    fix2flt    F0,L0
+                    move       L0,#$200.L
+                    fix2flt    F1,L0
+                    fdiv       F0,F1
+                    ergr       "STAT_MOTORSTROM_SONNENROLLO_WERT",F0
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+__0000530A:         etag       __0000533F,"STAT_MOTORSTROM_SONNENROLLO_EINH"
+                    push       #$1.L
+                    jump       __00005345
+__0000533F:         push       #$0.L
+__00005345:         pop        L0
+                    jz         __0000538E
+                    nop
+                    clear      S1
+                    move       S1,"Ampere"
+                    push       #$1.L
+                    ergs       "STAT_MOTORSTROM_SONNENROLLO_EINH",S1
+                    pop        L0
+__0000538E:         etag       __000053BF,"STAT_SITZHEIZUNG_LINKS_STUFE"
+                    push       #$1.L
+                    jump       __000053C5
+__000053BF:         push       #$0.L
+__000053C5:         pop        L0
+                    jz         __00005428
+                    nop
+                    move       L0,#$14.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_SITZHEIZUNG_LINKS_STUFE",I0
+                    pop        L0
+__00005428:         etag       __0000545A,"STAT_SITZHEIZUNG_RECHTS_STUFE"
+                    push       #$1.L
+                    jump       __00005460
+__0000545A:         push       #$0.L
+__00005460:         pop        L0
+                    jz         __000054C4
+                    nop
+                    move       L0,#$15.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S2
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L0,#$4.L
+                    ergi       "STAT_SITZHEIZUNG_RECHTS_STUFE",I0
+                    pop        L0
+__000054C4:         clear      S1
+                    move       S1,"OKAY"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
+STEUERN_IO#
+;    JOBNAME:STEUERN_IO
+;    JOBCOMMENT:Status vorgeben
+;    ARG:IO_ID
+;    ARGTYPE:string
+;    ARGCOMMENT:table IOStatus IO_ID_TEXT
+;    ARG:IO_BYTE
+;    ARGTYPE:string
+;    ARGCOMMENT:'EIN','AUS'
+;    ARGCOMMENT:table DigitalArgument TEXT
+;    RESULT:JOB_STATUS
+;    RESULTTYPE:string
+;    RESULTCOMMENT:OKAY, wenn fehlerfrei
+;    RESULT:AUFTRAG
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Auftragstelegramm
+;    RESULT:ANTWORT
+;    RESULTTYPE:binary
+;    RESULTCOMMENT:Antworttelegramm
+;
+                    pars       S1,#$1.I
+                    jz         __00005505
+                    push       #$1.L
+                    jump       __0000550B
+__00005505:         push       #$0.L
+__0000550B:         pop        L0
+                    jz         __000056B0
+                    nop
+                    clear      S1
+                    pars       S1,#$1.I
+                    jz         __00005530
+                    push       #$1.L
+                    jump       __00005536
+__00005530:         push       #$0.L
+__00005536:         clear      S5
+                    move       S5,S1
+                    pop        L0
+                    clear      S1
+                    move       S1,"IOStatus"
+                    push       #$1.L
+                    tabset     "IOStatus"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"IO_ID_TEXT"
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    move       S1,S5
+                    tabseek    "IO_ID_TEXT",S1
+                    jz         __000055C2
+                    push       #$1.L
+                    jump       __000055C8
+__000055C2:         push       #$0.L
+__000055C8:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    push       #$0.L
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __000055F6
+                    push       #$0.L
+                    jump       __000055FC
+__000055F6:         push       #$1.L
+__000055FC:         pop        L0
+                    jz         __00005636
+                    nop
+                    clear      S1
+                    move       S1,"ERROR_IO_ID"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__00005636:         clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"IO_ID"
+                    push       #$1.L
+                    tabget     S5,"IO_ID"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S5
+                    push       #$1.L
+                    a2fix      L0,S5
+                    push       L0
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    atsp       L0,#$4.L
+                    move       S0[#$0],B0
+                    move       S0[#$1],B1
+                    pop        L0
+                    jump       __000056DF
+__000056B0:         clear      S1
+                    move       S1,"ERROR_IO_ID"
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+__000056DF:         clear      S1
+                    move       S1,"IO_BYTE"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00005713
+                    move       I1,#$FFFFFFFF.I
+__00005713:         push       L0
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L2,#$8.L
+                    gettmr     L6
+                    settmr     #$400.L
+                    pars       S1,#$2.I
+                    jnz        __00005760
+                    move       L0,#$2.L
+                    test       L0,#$2.L
+                    jnz        __00005827
+                    and        L0,#$1.L
+                    move       L2,L0
+                    jump       __000057C0
+__00005760:         move       L0,#$0.L
+__00005767:         comp       S1[L0],#$0.B
+                    jz         __00005784
+                    or         S1[L0],#' '
+                    adds       L0,#$1.L
+                    jump       __00005767
+__00005784:         tabset     "DigitalArgument"
+                    jt         __000057CC,#$A.L
+                    tabseek    "TEXT",S1
+                    jz         __00005827
+                    tabget     S1,"WERT"
+                    a2fix      L2,S1
+__000057C0:         push       #$1.L
+                    jump       __0000584D
+__000057CC:         push       #$0.L
+                    ergs       "JOB_MESSAGE","Table DigitalArgument not found"
+                    ergs       "JOB_STATUS","ERROR_TABLE"
+                    jump       __0000584D
+__00005827:         push       #$0.L
+                    ergs       "JOB_STATUS","ERROR_ARGUMENT"
+__0000584D:         clrt
+                    settmr     L6
+                    pop        L1
+                    pop        L0
+                    move       L0,L2
+                    move       S0[#$2],B0
+                    move       S0[#$3],B1
+                    pop        L0
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    push       #$0.L
+                    pop        L1
+                    pop        L0
+                    comp       L0,L1
+                    jz         __00005896
+                    push       #$0.L
+                    jump       __0000589C
+__00005896:         push       #$1.L
+__0000589C:         pop        L0
+                    jz         __000058A9
+                    nop
+                    eoj
+__000058A9:         clear      S1
+                    move       S1,{$F5.B,$06.B,$0C.B,$00.B,$00.B}
+                    push       #$1.L
+                    clear      S2
+                    move       S2,S1
+                    pop        L0
+                    move       L0,#$3.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$0]
+                    jpl        __000058E4
+                    move       I1,#$FFFFFFFF.I
+__000058E4:         push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    move       L0,#$4.L
+                    push       L0
+                    clear      L0
+                    move       I0,S0[#$2]
+                    jpl        __00005916
+                    move       I1,#$FFFFFFFF.I
+__00005916:         push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    move       S2[L1],B0
+                    pop        L0
+                    etag       __00005946,"AUFTRAG"
+                    push       #$1.L
+                    jump       __0000594C
+__00005946:         push       #$0.L
+__0000594C:         pop        L0
+                    jz         __00005974
+                    nop
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    ergy       "AUFTRAG",S1
+                    pop        L0
+__00005974:         clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    clear      S1
+                    move       S1,S2
+                    push       #$1.L
+                    clear      S3
+                    xsend      S3,S2
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    etag       __000059C6,"ANTWORT"
+                    push       #$1.L
+                    jump       __000059CC
+__000059C6:         push       #$0.L
+__000059CC:         pop        L0
+                    jz         __000059F4
+                    nop
+                    clear      S1
+                    move       S1,S3
+                    push       #$1.L
+                    ergy       "ANTWORT",S1
+                    pop        L0
+__000059F4:         clear      S1
+                    move       S1,"JobResult"
+                    push       #$1.L
+                    tabset     "JobResult"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,"SB"
+                    push       #$1.L
+                    move       L0,#$2.L
+                    push       L0
+                    atsp       L1,#$4.L
+                    clear      S1
+                    move       S1,S3
+                    clear      L0
+                    move       B0,S1[L1]
+                    push       L0
+                    pop        L0
+                    pop        L1
+                    push       L0
+                    atsp       L2,#$4.L
+                    move       L0,L2
+                    fix2hex    S1,B0
+                    tabseek    "SB",S1
+                    jz         __00005A92
+                    push       #$1.L
+                    jump       __00005A98
+__00005A92:         push       #$0.L
+__00005A98:         pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    clear      S1
+                    move       S1,"STATUS_TEXT"
+                    push       #$1.L
+                    tabget     S4,"STATUS_TEXT"
+                    push       #$1.L
+                    pop        L1
+                    pop        L0
+                    pop        L0
+                    push       L1
+                    pop        L0
+                    clear      S1
+                    move       S1,S4
+                    push       #$1.L
+                    ergs       "JOB_STATUS",S1
+                    pop        L0
+                    eoj
+                    eoj
+
+
