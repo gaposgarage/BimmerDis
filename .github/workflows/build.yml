@@ -15,8 +15,15 @@ jobs:
       - name: Compile EXE
         run: cmake --build build --config Release
 
+      - name: Collect EXE
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path output
+          Get-ChildItem -Path . -Recurse -Filter "*.exe" | Where-Object { $_.FullName -notmatch "CMakeFiles" } | Copy-Item -Destination output/
+          Get-ChildItem output/
+
       - name: Upload Executable
         uses: actions/upload-artifact@v4
         with:
           name: BimmerDis-Windows
-          path: build/**/BimmerDis.exe
+          path: output/*
